@@ -8,7 +8,7 @@ class Users(Base):
     id = Column(Integer, primary_key=True)
     balance = Column(Integer)
 
-class Services(Base):
+class Serveces(Base):
     __tablename__ = 'services'
     
     id = Column(Integer, primary_key=True)
@@ -18,10 +18,10 @@ class Services(Base):
 class reserve_movey(Base):
     __tablename__ = 'reserve_money'
     
-    id = Column(Integer)
+    id = Column(Integer, primary_key=True)
     from_user_id = Column(Integer, ForeignKey('users.id'))
     for_service_id = Column(Integer, ForeignKey('services.id'))
-    price = Column(Integer, ForeignKey('services.price')) #Не уверен насчет коннекта к price
+    # price = Column(Integer, ForeignKey('services.price')) #Не уверен насчет коннекта к price
     
 
 
