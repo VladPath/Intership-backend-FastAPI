@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, Integer, String, ForeignKey
+from sqlalchemy import Boolean, Column, Integer, String, ForeignKey, Da
 from database import Base
 
 
@@ -15,13 +15,17 @@ class Serveces(Base):
     name = Column(String)
     price = Column(Integer)
 
-class reserve_movey(Base):
-    __tablename__ = 'reserve_money'
+class ReserveMoney(Base):
+    __tablename__ = 'reserve_moneys'
     
     id = Column(Integer, primary_key=True)
     from_user_id = Column(Integer, ForeignKey('users.id'))
     for_service_id = Column(Integer, ForeignKey('services.id'))
-    # price = Column(Integer, ForeignKey('services.price')) #Не уверен насчет коннекта к price
+    price = Column(Integer, default=0)
+    at_created = Column()
+
+
+
     
 
 
